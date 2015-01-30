@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>Precursor & Legendary Price Checker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/cover.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Frans' GW2 Tools</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">TP Data</a></li>
+            <li><a href="#about">Timers</a></li>
+            <li><a href="#contact">Links</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div>Trading post data, updated every minute.</div>
+    
+    <div class="tabpanel" role="tabpanel">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#precursors" aria-controls="precursors" role="tab" data-toggle="tab">Precursors</a></li>
+        <li role="presentation"><a href="#legendaries" aria-controls="legendaries" role="tab" data-toggle="tab">Legendaries</a></li>
+        <li role="presentation"><a href="#materials" aria-controls="materials" role="tab" data-toggle="tab">Materials</a></li>
+        <li role="presentation"><a href="#custom" aria-controls="custom" role="tab" data-toggle="tab">Custom</a></li>
+      </ul>
+
+  <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="precursors">
+          <table class="table" id="Precursor-table">
+            <tr id="1">
+              <td>#</td>
+              <td>Name</td>
+              <td>Buy Order</td>
+              <td>Demand</td>
+              <td>Sell Price</td>                  
+              <td>Supply</td>
+              <td>Links</td>
+            </tr>
+          </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="legendaries">
+          <table class="table" id="Legendary-table">
+            <tr id="1">
+              <td>#</td>
+              <td>Name</td>
+              <td>Buy Order</td>
+              <td>Demand</td>
+              <td>Sell Price</td>                  
+              <td>Supply</td>
+              <td>Links</td>
+            </tr>        
+          </table>    
+        </div>
+        <div role="tabpanel" class="tab-pane" id="materials">
+          <table class="table" id="Materials-table">
+            <tr id="1">
+              <td>#</td>
+              <td>Name</td>
+              <td>Buy Order</td>
+              <td>Demand</td>
+              <td>Sell Price</td>                  
+              <td>Supply</td>
+              <td>Links</td>
+            </tr>          
+          </table> 
+         </div>   
+        <div role="tabpanel" class="tab-pane" id="custom">
+          <table class="table" id="Custom-table">
+            <tr id="1">
+              <td>#</td>
+              <td>Name</td>
+              <td>Buy Order</td>
+              <td>Demand</td>
+              <td>Sell Price</td>                  
+              <td>Supply</td>
+              <td>Links</td>
+            </tr>          
+          </table> 
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    
+            
+          
+
+          <div class="mastfoot">
+            <div class="inner">
+              
+            </div>
+          </div>
+
+  
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/gw-api.js"></script>
+    <Script> 
+
+      //get_item_info();
+
+      //get_precursors();
+      get_item_info();
+      
+
+
+    </script>    
+  </body>
+</html>
