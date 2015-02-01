@@ -89,6 +89,7 @@ function process_item_updates(result, tab){
            
         //console.log(value["buys"]["unit_price"]);
         id = value["id"];
+        id = id.toString();
         buyPrice = value["buys"]["unit_price"];
         demand = value["buys"]["quantity"];
         sellPrice = value["sells"]["unit_price"];
@@ -97,16 +98,16 @@ function process_item_updates(result, tab){
         //$(value["id"] + ' .itemBuyPrice') = value["id"]["buys"]["unit_price"];
         //document.getElementById(value["id"]).getElementsByClassName('itemBuyPrice')[0].setAttribute("innerHTML", value["id"]["buys"]["unit_price"]);
         buyPriceHTML = add_coin_images(buyPrice);
-        update_field(document.getElementById(id).getElementsByClassName('itemBuyPrice')[0], buyPrice, buyPriceHTML); 
+        update_field(document.getElementById(tab + "-table").getElementsByClassName("itemBuyPrice " +id)[0], buyPrice, buyPriceHTML); 
         
 
-        update_field(document.getElementById(id).getElementsByClassName('itemDemand')[0], demand, demand); 
+        update_field(document.getElementById(tab + "-table").getElementsByClassName("itemDemand " +id)[0], demand, demand); 
         
         sellPriceHTML = add_coin_images(sellPrice);
-        update_field(document.getElementById(id).getElementsByClassName('itemSellPrice')[0], sellPrice, sellPriceHTML);
+        update_field(document.getElementById(tab + "-table").getElementsByClassName("itemSellPrice " +id)[0], sellPrice, sellPriceHTML);
 
 
-        update_field(document.getElementById(id).getElementsByClassName('itemSupply')[0], supply, supply);            
+        update_field(document.getElementById(tab + "-table").getElementsByClassName("itemSupply " +id)[0], supply, supply);            
             
     }); 
 }
@@ -127,14 +128,10 @@ function add_coin_images(price){
     return newPrice;
 }
 
-function get_item_info(){
+function get_item_info(items){
     //var precursors = "29166,29167,29168,29169,29170,29171,29172,29173,29174,29175,29176,29177,29178,29179,29180,29181,29182,29183,29184,29185";
     
-    var items = [];
-    items[0] = "Precursors";
-    items[1] = "29166,29167,29168,29169,29170,29171,29172,29173,29174,29175,29176,29177,29178,29179,29180,29181,29182,29183,29184,29185";
-    items[2] = "Legendaries";
-    items[3] = "30684,30685,30686,30687,30688,30689,30690,30691,30692,30693,30694,30695,30696,30697,30698,30699,30700,30701,30702,30703,30704";
+    
     var params;
     var tab;
     var len = items.length;
@@ -197,11 +194,16 @@ function process_item_info(result, tab){
         $(cell1).addClass("itemID");
         cell1.innerHTML = id;       
         cell2.innerHTML = "<img class=\"image\" src=\"" + image + "\" width=\"20\" height=\"20\"> " + name;
+        id = id.toString();
         $(cell2).addClass("itemName");
         $(cell3).addClass("itemBuyPrice");
+        $(cell3).addClass(id);
         $(cell4).addClass("itemDemand");
+        $(cell4).addClass(id);
         $(cell5).addClass("itemSellPrice");
+        $(cell5).addClass(id);
         $(cell6).addClass("itemSupply");
+        $(cell6).addClass(id);
         $(cell7).addClass("itemLinks");
         cell7.innerHTML = "<a href=\"http://wiki.guildwars2.com/wiki/" + name + "\" target=\"blank\">Wiki</a> - <a href=\"http://www.gw2spidy.com/item/" + id + "\" target=\"blank\">GW2Spidy</a> - <a href=\"http://www.gw2tp.com/item/" + id + "\" target=\"blank\">GW2TP</a>";
     });
