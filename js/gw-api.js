@@ -26,11 +26,17 @@ function get_api_results(params, callback, tab, api_url){
 	  		callback(json, tab);
 	 	},
 
-		error: function( xhr, status, errorThrown) {
-        	alert( "Sorry, there was a problem!" );
-        	console.log( "Error: " + errorThrown );
-        	console.log( "Status: " + status );
-        	console.dir( xhr );
+		error: function(xhr, status, errorThrown) {
+        	   
+                if(xhr["responseJSON"]["text"] == "all ids provided are invalid"){
+                    alert("One ore more IDs are not valid.")
+                }else{                    
+                    alert( "Sorry, there was a problem!" );
+                    console.log( "Error: " + errorThrown );
+                    console.log( "Status: " + status );
+                    console.dir( xhr );
+                }
+            
     	},
     });
 }

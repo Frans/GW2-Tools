@@ -221,6 +221,12 @@ body {
   background-color: #404040;
 }
 
+tr:hover{
+  background-color: #000;
+}
+
+
+
 .itemID{
   font-size: 10px;
   width: 1px;
@@ -247,4 +253,7 @@ body {
 .itemName{
   text-align: left;
 }
-
+.itemName:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
