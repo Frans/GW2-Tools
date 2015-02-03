@@ -47,15 +47,16 @@
 
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#precursors" aria-controls="precursors" role="tab" data-toggle="tab">Precursors</a></li>
-        <li role="presentation"><a href="#legendaries" aria-controls="legendaries" role="tab" data-toggle="tab">Legendaries</a></li>
-        <li role="presentation"><a href="#materials" aria-controls="materials" role="tab" data-toggle="tab">Materials</a></li>
-        <li role="presentation"><a href="#custom" aria-controls="custom" role="tab" data-toggle="tab">Custom</a></li>
+        <li role="presentation" class="active"><a href="#Precursors" aria-controls="Precursors" role="tab" data-toggle="tab">Precursors</a></li>
+        <li role="presentation"><a href="#Legendaries" aria-controls="Legendaries" role="tab" data-toggle="tab">Legendaries</a></li>
+        <li role="presentation"><a href="#T6-Materials" aria-controls="T6-Materials" role="tab" data-toggle="tab">T6 Fine & Rare Mats</a></li>
+        <li role="presentation"><a href="#Ascended-Other-mats" aria-controls="Ascended-Other-mats" role="tab" data-toggle="tab">Ascended & Other mats</a></li>
+        <li role="presentation"><a href="#Custom" aria-controls="Custom" role="tab" data-toggle="tab">Custom</a></li>
       </ul>
 
   <!-- Tab panes -->
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="precursors">
+        <div role="tabpanel" class="tab-pane active" id="Precursors">
           <table class="table" id="Precursors-table">
             <tr id="1">
               <td>#</td>
@@ -68,7 +69,7 @@
             </tr>
           </table>
         </div>
-        <div role="tabpanel" class="tab-pane" id="legendaries">
+        <div role="tabpanel" class="tab-pane" id="Legendaries">
           <table class="table" id="Legendaries-table">
             <tr id="1">
               <td>#</td>
@@ -81,8 +82,9 @@
             </tr>        
           </table>    
         </div>
-        <div role="tabpanel" class="tab-pane" id="materials">
-          <table class="table" id="Materials-table">
+
+        <div role="tabpanel" class="tab-pane" id="T6-Materials">
+          <table class="table" id="T6-Materials-table">
             <tr id="1">
               <td>#</td>
               <td>Name</td>
@@ -93,8 +95,23 @@
               <td>Links</td>
             </tr>          
           </table> 
-         </div>   
-        <div role="tabpanel" class="tab-pane" id="custom">
+        </div> 
+
+        <div role="tabpanel" class="tab-pane" id="Ascended-Other-mats">
+          <table class="table" id="Ascended-Other-mats-table">
+            <tr id="1">
+              <td>#</td>
+              <td>Name</td>
+              <td>Buy Order</td>
+              <td>Demand</td>
+              <td>Sell Price</td>                  
+              <td>Supply</td>
+              <td>Links</td>
+            </tr>  
+          </table> 
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="Custom">
           <table class="table" id="Custom-table">
             <tr id="1">
               <td>#</td>
@@ -104,19 +121,28 @@
               <td>Sell Price</td>                  
               <td>Supply</td>
               <td>Links</td>
-            </tr>          
+            </tr>  
           </table> 
-        </div>
+          <form id="AddItemForm" class="form-inline">
+            <div class="form-group">
+              <label for="ItemID">Item ID</label>
+              <input type="text" class="form-control" id="AddItemForm-ItemID" placeholder="19697">
+            </div>    
+            <button type="submit" class="btn btn-default">Add Item</button>
+          </form>
+          <p>You can find the ID of items by looking them up on <a href="http://www.gw2spidy.com" target="blank">GW2Spidy</a>. The Item ID is the number at the end of the URL for your item.</p>
+          
+        </div>  
+        
+        
+            
+          
+
+          
       </div>
 
     </div>
 
-
-
-
-    
-            
-          
 
           <div class="mastfoot">
             <div class="inner">
@@ -135,17 +161,53 @@
     <script src="js/gw-api.js"></script>
     <Script> 
 
+    $('table').on('click', 'td', function(){
+      if(this.className != "itemLinks"){
+        console.log(this.className);  
+      }
+      
+    });
+
+    //$("ite").on('click', 'tr', function(){
+    //  console.log(this.id);
+    //  //$('#myModal').modal('show');
+    //});
+
+  //$('#myModal').modal('show');
+
     var items = [];
     items[0] = "Precursors";
     items[1] = "29166,29167,29168,29169,29170,29171,29172,29173,29174,29175,29176,29177,29178,29179,29180,29181,29182,29183,29184,29185";
     items[2] = "Legendaries";
     items[3] = "30684,30685,30686,30687,30688,30689,30690,30691,30692,30693,30694,30695,30696,30697,30698,30699,30700,30701,30702,30703,30704";
-    items[4] = "Materials";
-    items[5] = "24358,24295,24351,24277,24357,24289,24300,24283,37897,44941,24330,24325,24305,24340,24320,24315,24310,48884,49782,66933,46736,46739,46741,46738";
-    items[6] = "Custom";
-    items[7] = "19702,29166,29184,19699,19698,19703";
+    items[4] = "T6-Materials";
+    items[5] = "24358,24295,24351,24277,24357,24289,24300,24283,37897,44941,24330,24325,24305,24340,24320,24315,24310,44941,49782,19721";
+    items[6] = "Ascended-Other-mats"
+    items[7] = "46736,46738,46739,46741,66933,38291,36038,36041,47909,67377,38134";
+    items[8] = "Custom";
+    items[9] = "19702,29166,29184,19699,19698,19703,19682,19683,19687,19686";
     
+    
+    $( "#AddItemForm" ).submit(function( event ) {
+      //alert( "Handler for .submit() called." );
+
+      //var table = document.getElementById("Custom-table");
+      //var row = table.insertRow(-1);
+
+      //items[9] += "," + document.getElementById("AddItemForm-ItemID").value;
+      if ( (document.getElementById("AddItemForm-ItemID").value+"").match(/^\d+$/) ) {      
+        var params = "ids=" + document.getElementById("AddItemForm-ItemID").value;
+        get_tp_items(params, process_item_info, "Custom");
+      }else{
+        alert("please input a whole number.");
+      }
       
+      //onsole.log(items[9]);
+      event.preventDefault();
+    });
+
+
+
     get_item_info(items);
       
 
